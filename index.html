@@ -30,7 +30,16 @@
             <textarea class="textarea" rows="6" cols="40" v-model="config"></textarea>
           </div>
         </div>
-        <button class="button is-info" v-bind:class="{ 'is-loading': loading }" v-on:click="apply">Apply</button>
+        <div class="field">
+          <div class="control">
+            <button class="button is-info" v-bind:class="{ 'is-loading': loading }" v-on:click="apply">Apply</button>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <progress class="progress is-info" v-if="loading" v-bind:value="progress" max="100">{{progress}}%</progress>
+          </dib>
+        </div>
       </div>
     </section>
 
