@@ -8,20 +8,20 @@ var app = new Vue({
     cueCount: 0,
     successCueCount: 0,
   },
+  mounted: function() {
+    if (location.hash.length > 0) {
+      let hash = location.hash.substr(1);
+      let data = hash.split("!");
+      this.address = data[0];
+      this.config = atob(decodeURIComponent(data[1]));
+    }
+  },
   computed: {
     progress: function () {
       return Math.round((this.successCueCount / this.cueCount) * 100)
     },
   },
   methods: {
-    window:onload = function() {
-      if (location.hash.length > 0) {
-        let hash = location.hash.substr(1);
-        let data = hash.split("!");
-        this.address = data[0];
-        this.config = atob(decodeURIComponent(data[1]));
-      }
-    },
     apply: function () {
       this.successCueCount = 0;
       this.loading = true;
