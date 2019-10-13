@@ -1,7 +1,7 @@
 var app = new Vue({
   el: '#app',
   data: {
-    config: '',
+    config: location.hash.length > 0 ? atob(decodeURIComponent(location.hash.substr(1))) : "",
     address: "",
     loading: false,
 
