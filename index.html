@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    <meta charset="utf-8">
+    <title>KUMO JSON Configuration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
   </head>
   <body>
-    <div id="app">
-      <textarea v-model="config"></textarea>
-      <input v-model="address"></input>
-      <button v-on:click="apply">Apply</button>
-    </div>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            KUMO JSON Configuration
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div id="app" class="container">
+        <div class="field">
+          <label class="label">Address</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="192.168..." v-model="address" />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">JSON Config</label>
+          <div class="control">
+            <textarea class="textarea" rows="6" cols="40" v-model="config"></textarea>
+          </div>
+        </div>
+        <button class="button is-info" v-bind:class="{ 'is-loading': loading }" v-on:click="apply">Apply</button>
+      </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
     <script src="./kumo.js"></script>
   </body>
 </html>
